@@ -1,0 +1,13 @@
+{
+  "name": "hipaa-compliance-masterscan",
+  "version": "1.0.0",
+  "description": "Pre-release compliance gate for US digital health software. Two-axis model (legal scope x technical component) covering HIPAA plus what HIPAA-only review misses: FTC, state health data laws, 42 CFR Part 2, ONC, FDA, AI/LLM.",
+  "author": {
+    "name": "Mike Nguyen",
+    "url": "https://github.com/mikenguyendev"
+  },
+  "homepage": "https://github.com/mikenguyendev/hipaa-compliance-masterscan",
+  "repository": "https://github.com/mikenguyendev/hipaa-compliance-masterscan",
+  "license": "MIT",
+  "keywords": ["hipaa", "healthcare", "compliance", "security", "privacy", "release-gate", "ftc", "fda", "phi"]
+}

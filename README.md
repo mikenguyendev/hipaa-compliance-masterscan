@@ -30,39 +30,79 @@ a checklist; the rest get a one-line exclusion.
 
 ```
 hipaa-compliance-masterscan/
-├── SKILL.md                         entry point: model, workflow, ratings, output format
-├── references/
-│   ├── axis1-legal-scope.md         the six scoping questions
-│   ├── beyond-hipaa.md              FTC, 42 CFR Part 2, state laws, ONC, FDA, AI laws, certifications
-│   ├── hipaa-core-summary.md        compact HIPAA reference so the skill stands alone
-│   ├── component-backend-api.md
-│   ├── component-web-frontend.md
-│   ├── component-mobile-app.md
-│   ├── component-infrastructure.md
-│   ├── component-ai-llm.md
-│   └── component-integrations.md
-├── templates/
-│   ├── project-profile.md           Axis 1 intake form
-│   └── release-review-report.md     report with release decision
-└── scripts/
-    └── scan.py                      heuristic lead finder (trackers, LLM SDKs, storage, secrets)
+├── .claude-plugin/
+│   ├── plugin.json                  plugin manifest
+│   └── marketplace.json             lets Claude Code install straight from this repo
+├── skills/hipaa-compliance-masterscan/
+│   ├── SKILL.md                     entry point: model, workflow, ratings, output format
+│   ├── references/
+│   │   ├── axis1-legal-scope.md     the six scoping questions
+│   │   ├── beyond-hipaa.md          FTC, 42 CFR Part 2, state laws, ONC, FDA, AI laws, certifications
+│   │   ├── hipaa-core-summary.md    compact HIPAA reference so the skill stands alone
+│   │   ├── component-backend-api.md
+│   │   ├── component-web-frontend.md
+│   │   ├── component-mobile-app.md
+│   │   ├── component-infrastructure.md
+│   │   ├── component-ai-llm.md
+│   │   └── component-integrations.md
+│   ├── templates/
+│   │   ├── project-profile.md       Axis 1 intake form
+│   │   └── release-review-report.md report with release decision
+│   └── scripts/
+│       └── scan.py                  heuristic lead finder (trackers, LLM SDKs, storage, secrets)
+├── install.sh                       copies the skill into ~/.claude/skills
+└── package-skill.sh                 builds a .skill file for claude.ai / Claude Desktop
 ```
 
 ## Install
 
-Copy the folder into your skills directory:
+### Option 1 - Claude Code plugin (one command)
 
-- Claude Code (user scope): `~/.claude/skills/hipaa-compliance-masterscan/`
-- Claude Code (project scope): `<repo>/.claude/skills/hipaa-compliance-masterscan/`
+Inside Claude Code:
 
-Then ask, for example: "Run a health release review on this repo" or
+```
+/plugin install hipaa-compliance-masterscan --marketplace mikenguyendev/hipaa-compliance-masterscan
+```
+
+Or from a shell:
+
+```bash
+claude plugin marketplace add mikenguyendev/hipaa-compliance-masterscan
+```
+
+```bash
+claude plugin install hipaa-compliance-masterscan@mikenguyendev
+```
+
+### Option 2 - Copy the skill folder
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/mikenguyendev/hipaa-compliance-masterscan/main/install.sh | sh
+```
+
+Installs to `~/.claude/skills/hipaa-compliance-masterscan/`. Run with `--project` from a
+cloned copy to install into the current repo's `.claude/skills/` instead.
+
+### Option 3 - claude.ai and Claude Desktop (.skill file)
+
+Download `hipaa-compliance-masterscan.skill` from the latest
+[release](https://github.com/mikenguyendev/hipaa-compliance-masterscan/releases), then
+upload it under Settings > Capabilities > Skills. To build it yourself:
+
+```bash
+sh package-skill.sh
+```
+
+### Then
+
+Ask, for example: "Run a HIPAA Compliance MasterScan on this repo" or
 "Profile the regulatory scope of this product".
 
 ## Using the scanner
 
 ```bash
-python3 -I scripts/scan.py /path/to/repo
-python3 -I scripts/scan.py /path/to/repo --json > leads.json
+python3 -I skills/hipaa-compliance-masterscan/scripts/scan.py /path/to/repo
+python3 -I skills/hipaa-compliance-masterscan/scripts/scan.py /path/to/repo --json > leads.json
 ```
 
 It reports leads by category with a pointer to the checklist that governs them. It does
