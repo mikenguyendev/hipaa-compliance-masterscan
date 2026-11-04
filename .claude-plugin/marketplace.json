@@ -1,0 +1,20 @@
+{
+  "name": "mikenguyendev",
+  "owner": {
+    "name": "Mike Nguyen",
+    "url": "https://github.com/mikenguyendev"
+  },
+  "metadata": {
+    "description": "Plugins by mikenguyendev"
+  },
+  "plugins": [
+    {
+      "name": "hipaa-compliance-masterscan",
+      "source": "./",
+      "description": "Pre-release compliance gate for US digital health software: HIPAA plus FTC, state health data laws, 42 CFR Part 2, ONC, FDA, and AI/LLM checks, organized by legal scope and technical component.",
+      "version": "1.0.0",
+      "category": "compliance",
+      "keywords": ["hipaa", "healthcare", "compliance", "security", "privacy"]
+    }
+  ]
+}
