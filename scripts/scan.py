@@ -154,7 +154,7 @@ def main():
     for h in hits:
         by_cat.setdefault(h["category"], []).append(h)
 
-    print(f"health-release-review scan of {root}")
+    print(f"hipaa-compliance-masterscan scan of {root}")
     print(f"{len(hits)} lead(s){' (truncated)' if truncated else ''}. Leads are not findings until checked.\n")
     order = ["secret", "crypto", "tracker", "llm", "url-phi", "storage", "logging", "mobile"]
     for cat in order:

@@ -1,6 +1,6 @@
-# health-release-review
+# HIPAA Compliance MasterScan
 
-A Claude skill that acts as a **pre-release compliance gate for US digital health
+Skill name: `hipaa-compliance-masterscan`. A Claude skill that acts as a **pre-release compliance gate for US digital health
 software**. It is built to catch what a HIPAA-only review misses.
 
 ## Why
@@ -29,7 +29,7 @@ a checklist; the rest get a one-line exclusion.
 ## Layout
 
 ```
-health-release-review/
+hipaa-compliance-masterscan/
 ├── SKILL.md                         entry point: model, workflow, ratings, output format
 ├── references/
 │   ├── axis1-legal-scope.md         the six scoping questions
@@ -52,8 +52,8 @@ health-release-review/
 
 Copy the folder into your skills directory:
 
-- Claude Code (user scope): `~/.claude/skills/health-release-review/`
-- Claude Code (project scope): `<repo>/.claude/skills/health-release-review/`
+- Claude Code (user scope): `~/.claude/skills/hipaa-compliance-masterscan/`
+- Claude Code (project scope): `<repo>/.claude/skills/hipaa-compliance-masterscan/`
 
 Then ask, for example: "Run a health release review on this repo" or
 "Profile the regulatory scope of this product".

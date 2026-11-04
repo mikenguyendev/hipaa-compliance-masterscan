@@ -1,9 +1,9 @@
 ---
-name: health-release-review
+name: hipaa-compliance-masterscan
 description: Pre-release compliance gate for US digital health software using a two-axis model (legal scope x technical component). Covers what a HIPAA-only review misses - FTC Health Breach Notification Rule, state consumer health data laws, 42 CFR Part 2, ONC information blocking, FDA software rules, tracking pixels, mobile data handling, and AI/LLM data flows. Use when asked to review, audit, gate, or approve a healthcare backend, web app, mobile app, AI feature, or integration before release, or to profile a health project's regulatory scope.
 ---
 
-# Health Release Review
+# HIPAA Compliance MasterScan
 
 > **Content reflects US law and agency guidance as of mid-2026.** Rules in this space change
 > often and several have been challenged in court. Verify anything you rely on against the
@@ -121,7 +121,7 @@ cites the rule, the evidence location (file:line, config path, screenshot), and 
 ## Output format for a review
 
 ```
-## Health Release Review: [Product / Component]
+## HIPAA Compliance MasterScan: [Product / Component]
 
 **Release decision:** BLOCK / FIX BEFORE RELEASE / RELEASE WITH TRACKED ITEMS
 **Reviewed:** [components] · **Not reviewed:** [components]

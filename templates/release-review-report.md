@@ -1,4 +1,4 @@
-# Health Release Review: [PRODUCT / COMPONENT]
+# HIPAA Compliance MasterScan: [PRODUCT / COMPONENT]
 
 **Release decision:** BLOCK / FIX BEFORE RELEASE / RELEASE WITH TRACKED ITEMS
 **Review date:** [DATE] · **Reviewer:** [NAME] · **Compliance owner:** [NAME]
